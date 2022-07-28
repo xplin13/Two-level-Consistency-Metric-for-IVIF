@@ -1,4 +1,4 @@
-*Two-level Consistency Metric for Infrared and Visible Image Fusion*
+# *Two-level Consistency Metric for Infrared and Visible Image Fusion*
 
 ## Platform
 python 3.7.0\
