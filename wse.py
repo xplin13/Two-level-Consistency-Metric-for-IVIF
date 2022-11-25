@@ -73,15 +73,15 @@ class WSELoss(_Loss):
         enhance_target_1 = enhance_target_1.cuda()
         ret_1 = (input_1 - enhance_target_1) ** 2
 
-        mask_one = torch.cat((ret, ret_1), 2)
+        batch, c, h, w = enhance_target.shape
+        mask_ret = enhance_target.view(batch, c, -1)
+        mask_ret = torch.softmax(mask_ret, dim=2)
+        mask_ret = mask_ret.view(batch, c, h, w)
 
-        batch, c, h, w = mask_one.shape
-        mask_one = mask_one.view(batch, c, -1)
-        mask_one = torch.softmax(mask_one, dim=2)
-        mask_one = mask_one.view(batch, c, h, w)
-
-        mask_ret = mask_one[:, :, 0:256, :]
-        mask_ret1 = mask_one[:, :, 256:512, :]
+        batch1, c1, h1, w1 = enhance_target_1.shape
+        mask_ret1 = enhance_target_1.view(batch1, c1, -1)
+        mask_ret1 = torch.softmax(mask_ret1, dim=2)
+        mask_ret1 = mask_ret1.view(batch1, c1, h1, w1)
 
         ret = mask_ret * ret
         ret_1 = mask_ret1 * ret_1
