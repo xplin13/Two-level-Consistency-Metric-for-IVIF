@@ -13,7 +13,7 @@ Our trained model can be downloaded at: https://pan.baidu.com/s/14wEtKrzXypk8ReV
 The model should be put into checkpoint folder for test.
 
 ## Update
-In a subsequent study, we found that combine the two types of high-frequency attention source images in the computation of the weight map could better preserve the  saliency of the infrared target in the fusion results and obtain better visual quality. Therefore, we update the loss function named wse_update here, and if you use this loss function, please cite the article:\
+In a subsequent study, we found that combine the two types of high-frequency attention source images in the computation of the weight map could better preserve the  saliency of the infrared target in the fusion results and obtain better visual quality. Therefore, we update the loss function named wse_update here, and if you use this loss function, please cite the article:
 
 @article{lin2022two,\
   title={Two-Level Consistency Metric for Infrared and Visible Image Fusion},\
